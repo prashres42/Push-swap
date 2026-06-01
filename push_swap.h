@@ -1,21 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/06/01 18:03:49 by ppourraj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "printf.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
 
-typedef struct s_stack_node
+typedef struct s_stack
 {
-	int	value;
-	int	current_position;
-	int final_index;
-	int push_price;
-	bool above_median;
-	bool cheapest;
-	struct s_stack_node *target_node;
-	struct s_stack_node *next;
-	struct s_stack_node *prev; 
-}	t_stack_node;
+	int				value;
+	struct s_stack	*next;
+}				t_stack;
 
 #endif

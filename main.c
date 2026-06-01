@@ -1,14 +1,21 @@
-#include "push_swap.h"
-int main(int argc, char **argv)
-{
-	t_stack_node *a;
-	t_stack_node *b;
-	
-	a = NULL;
-	b = NULL;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/01 18:03:23 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/06/01 18:05:49 by ppourraj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	if(argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+#include "push_swap.h"
+
+int	main(int argc, char **argv)
+{
+	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
-	if(argc == 2)
+	if (argc == 2)
 		return (ft_split(argv[1], ' '));
 }
