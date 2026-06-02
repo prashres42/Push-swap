@@ -1,9 +1,12 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+# include <stdbool.h>
+# include <limits.h>
 
 typedef struct s_stack_node
 {
@@ -19,3 +22,4 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 #endif
+
