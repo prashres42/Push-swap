@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 10:44:12 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/01 18:05:36 by ppourraj         ###   ########.fr       */
+/*   Created: 2026/06/04 14:28:32 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/06/04 15:19:04 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,49 +21,23 @@ static void	swap(t_stack *stack)
 	stack->next->value = temp;
 }
 
-static void	push(t_stack **src, t_stack **dest)
+void sa(t_stack **a)
 {
-	t_stack	*top;
-
-	// if src is empty we cant push anything
-	if (!src)
-		return ;
-	top = *src;
-	*src = (*src)->next;
-	top->next = *dest;
-	*dest = top;
+    swap(*a);
+    write(1, "sa\n", 3);
 }
 
-static void	rotate(t_stack **top)
+void sb(t_stack **b)
 {
-	t_stack	*pre_top;
-	t_stack	*bottom;
-
-	pre_top = *top;
-	*top = (*top)->next;
-	bottom = *top;
-	while (bottom->next)
-		bottom = bottom->next;
-	pre_top->next = NULL;
-	bottom->next = pre_top;
+    swap(*b);
+    write(1, "sb\n", 3);
 }
 
-static void	reverse_rotate(t_stack **top)
+void ss(t_stack **a, t_stack **b)
 {
-	t_stack	*pre_top;
-	t_stack	*pre_bottom;
-	t_stack	*new_bottom;
-
-	pre_top = *top;
-	pre_bottom = *top;
-	new_bottom = *top;
-	while (pre_bottom->next)
-		pre_bottom = pre_bottom->next;
-	while (new_bottom->next->next)
-		new_bottom = new_bottom->next;
-	*top = pre_bottom;
-	pre_bottom->next = pre_top;
-	new_bottom->next = NULL;
+    swap(*a);
+    swap(*b);
+    write(1, "ss\n", 3);
 }
 
 // testing swap function
