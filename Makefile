@@ -1,7 +1,8 @@
 NAME	= push_swap.a
 CC	= cc
 CFLAGS	= -Wall -Werror -Wextra
-SRCS =  \
+SRCS =	check_flags.c swap.c push.c reverse_r.c rotate.c\
+		simple_selection.c main.c\
 
 OBJS = $(SRCS:.c=.o)
 

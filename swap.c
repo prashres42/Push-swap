@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:28:32 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/04 15:19:04 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/09 12:14:31 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 static void	swap(t_stack *stack)
 {
 	int	temp;
-
-	temp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = temp;
+    
+    if(!stack || stack->size < 2)
+        return ;
+	temp = stack->top->value;
+	stack->top->value = stack->top->next->value;
+	stack->top->next->value = temp;
 }
 
 void sa(t_stack **a)
