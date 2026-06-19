@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/19 12:32:03 by prashres          #+#    #+#             */
+/*   Updated: 2026/06/19 12:32:09 by prashres         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void ini_var(t_stacks **data, t_flags **flags, t_bench **bench)
@@ -30,3 +42,4 @@ int main(int argc, char **argv)
 	bench->disorder= (int)(compute_disorder(data->a) * 10000);
 		
 }
+
