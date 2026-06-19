@@ -22,11 +22,20 @@ long ft_atol(const char *str)
 	while(str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i] - '0');
-		i++;
 		if (result > INT_MAX || result < INT_MIN)
 			return (0);
+		i++;
 	}
 	return (result * sign);
+}
+static char **split_check (char **splitted, char **argv)
+{
+	splitted = ft_split(*argv++, ' ');
+	if(!splitted || !*splitted)
+		ft_error(data, ptr, splitted);
+	if(error_syntax(splitted))
+		ft_error(data, ptr, splitted);
+	return (splitted);
 }
 
 static int pars_args_helper(char **splitted, char **argv, t_stacks *data, t_ptr_b_f ptr)
@@ -38,20 +47,16 @@ static int pars_args_helper(char **splitted, char **argv, t_stacks *data, t_ptr_
 	while(*argv)
 	{
 		i = 0;
-		splitted = ft_split(*argv++, ' ');
-		if(!splitted || !*splitted)
-			ft_error(data, ptr, splitted);
-		if(error_syntax(splitted))
-			ft_error(data, ptr, splitted);
+		splitted = split_check(splitted, argv);
 		while(splitted[i])
 		{
 			nbr = ft_atol(splitted[i]);
+			if(error_repitition(data->a, (int)nbr))
+				ft_error(data, ptr, splitted);
 			new = node_new(nbr, data, ptr);
 			stack_addback(data->a, new);
 			i++;
 		}
-		if(error_repitition(new, (int)nbr))
-			ft_error(data, ptr, splitted);
 		free_split(splitted);
 	}
 	return (0);

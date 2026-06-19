@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = LIBFT/
 LIBFT = $(LIBFT_DIR)libft.a
@@ -8,7 +8,8 @@ LIBFT = $(LIBFT_DIR)libft.a
 PRINTF_DIR = ft_printf/
 PRINTF = $(PRINTF_DIR)libftprintf.a
 
-SRC	= bench_utils.c disorder.c error_free.c flags_utils.c main.c parse_utils.c stack_utils.c
+SRC	= 	bench_utils.c disorder.c error_free.c flags_utils.c push_swap.c parse_utils.c stack_utils.c\
+		check_flags.c 
 OBJ	= $(SRC:.c=.o)
 
 all: $(LIBFT) $(PRINTF) $(NAME)

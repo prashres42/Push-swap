@@ -35,7 +35,7 @@ static void ini_flags(t_flags *flag_value)
 	flag_value->adaptive = 0;
 	flag_value->bench = 0;
 }
-t_flags *check_flags(char **argv)
+t_flags *check_flag(char **argv)
 {
 	t_flags *flag_value;
 

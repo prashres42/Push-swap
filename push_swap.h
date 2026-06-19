@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/19 12:35:08 by prashres         ###   ########.fr       */
+/*   Updated: 2026/06/19 16:02:29 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ void free_split(char **splitted);
 void stack_free(t_stack *stack);
 void free_memory(t_bench *bench, t_flags *flag);
 
-int ft_strcmp(char *str1, char *str2);
 int compare_flags(char *argv, t_flags *flag_value);
 t_flags *check_flags(char **argv);
+t_flags *check_flag(char **argv);
 int flags_total(t_flags *flags);
 
 t_stacks *parse_args(char **argv, t_ptr_b_f ptr_b_f);
@@ -96,4 +96,15 @@ int is_sorted(t_stack *stack);
 t_stack	*new_stack(void);
 t_node *node_new(int value, t_stacks *data, t_ptr_b_f ptr);
 void stack_addback(t_stack *stack, t_node *node);
+
+void rra(t_stacks *data, t_bench *bench);
+void rrb(t_stacks *data, t_bench *bench);
+void rrr(t_stacks *data, t_bench *bench);
+void ra(t_stacks *data, t_bench *bench);
+void rb(t_stacks *data, t_bench *bench);
+void rr(t_stacks *data, t_bench *bench);
+void sa(t_stacks *data, t_bench *bench);
+void sb(t_stacks *data, t_bench *bench);
+void ss(t_stacks *data, t_bench *bench);
+
 #endif

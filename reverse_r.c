@@ -3,48 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_r.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:19:25 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/04 15:24:10 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/19 15:41:12 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reverse_rotate(t_stack **top)
+static void	reverse_rotate(t_stack *stack)
 {
-	t_stack	*pre_top;
-	t_stack	*pre_bottom;
-	t_stack	*new_bottom;
+	t_node	*pre_top;
+	t_node	*pre_bottom;
+	t_node	*new_bottom;
 
-	pre_top = *top;
-	pre_bottom = *top;
-	new_bottom = *top;
+	pre_top = stack->top;
+	pre_bottom = stack->top;
+	new_bottom = stack->top;
 	while (pre_bottom->next)
 		pre_bottom = pre_bottom->next;
 	while (new_bottom->next->next)
 		new_bottom = new_bottom->next;
-	*top = pre_bottom;
+	stack->top = pre_bottom;
 	pre_bottom->next = pre_top;
 	new_bottom->next = NULL;
 }
 
-void rra(t_stack **a)
+void rra(t_stacks *data, t_bench *bench)
 {
-    reverse_rotate(*a);
+    reverse_rotate(data->a);
+	bench->total_ops++;
+	bench->rra++;
     write(1, "rra\n", 4);
 }
 
-void rrb(t_stack **b)
+void rrb(t_stacks *data, t_bench *bench)
 {
-    reverse_rotate(*b);
+    reverse_rotate(data->b);
+	bench->total_ops++;
+	bench->rrb++;
     write(1, "rrb\n", 4);
 }
 
-void rrr(t_stack **a, t_stack **b)
+void rrr(t_stacks *data, t_bench *bench)
 {
-    reverse_rotate(*a);
-    reverse_rotate(*b);
+    reverse_rotate(data->a);
+    reverse_rotate(data->b);
+	bench->total_ops++;
+	bench->rrr++;
     write(1, "rrr\n", 4);
 }
