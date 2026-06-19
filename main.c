@@ -1,24 +1,32 @@
 #include "push_swap.h"
+
+static void ini_var(t_stacks **data, t_flags **flags, t_bench **bench)
+{
+	*data = NULL;
+	*flags = NULL;
+	*bench = NULL;
+}
+
 int main(int argc, char **argv)
 {
-	t_stack_node *a;
-	t_stack_node *b;
-	int i;
+	t_stacks *data;
+	t_flags *flags;
+	t_bench *bench;
 
-	i = 0;
-	a = NULL;
-	b = NULL;
-
-	if(argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-		return (1);
-	else if(argc == 2)
-	{
-		while(argv[i])
-		{
-			argv = (ft_split(argv[i], ' '));
-			i++;
-		}
-	}
-	stack_init(&a, argv + 1);
-	
+	if (argc < 2)
+		return (0);
+	ini_var(&data, &flags, &bench);
+	argv++;
+	if((*argv)[0] == '-' && (*argv)[1] == '-')
+		flags = check_flags(argv);
+	argv += flags_total(flags);
+	bench = ini_bench();
+	if(*argv)
+		data = parse_args(argv, bench_flags(bench, flags));
+	if(!data)
+		return(free_memory(bench,flags),1);
+	if(is_sorted(data->a))
+		return(free_memory(bench,flags),0);
+	bench->disorder= (int)(compute_disorder(data->a) * 10000);
+		
 }
