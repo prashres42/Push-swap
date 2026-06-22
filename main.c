@@ -6,25 +6,43 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:23 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/10 18:41:56 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:11:30 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	is_sorted(t_stack *stack)
 {
-	t_stacks		*data;
-	t_flags			*flags;
-	t_bench_status	*bench;
-	
-	data = NULL;
-	flags = NULL;
-	bench = NULL;
-	if (argc < 2)
-		return (0);
-	if ((*argv)[0] == '-' && (*argv)[1] == '-')
-		flags = check_flags(argv);
+	t_node	*tmp;
+
+	if (!stack || stack->size < 2)
+		return (1);
+	tmp = stack->top;
+	while (tmp->next)
+	{
+		if (tmp->value < tmp->next->value)
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	t_stack *a;
+	t_stack *b;
+	int i;
+
+	a = NULL;
+	b = NULL;
+
+	for(i = 1; argv[i]; i++)
+	{
+		stack_addback(a, node_new(ft_atoi(argv[i])));
+	}
+	selection_sort(a, b);
+	if (is_sorted(a))
+		printf("ITS SORTED!\n");
 }
 	
-// initialize_var(&data, &flags, &bench);

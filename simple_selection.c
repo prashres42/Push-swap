@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:26:58 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/10 18:38:10 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/22 20:05:09 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,15 @@ void min_to_top(t_stack *a)
 		}
 	}
 }
-void selection_sort(t_stack *a, t_stack *b)
+void selection_sort(t_stacks *data, t_bench *bench)
 {
-	while (a->size > 3)
+	
+	while (data->a->size > 3)
 	{
-		min_to_top(a);
-		pb(a, b);
+		min_to_top(data->a);
+		pb(data->a, data->b);
 	}
-	sort_three(a);
-	while (b->top != NULL)
-		pa(b, a);
+	sort_three(data->a);
+	while (data->b->top != NULL)
+		pa(data->b, data->a);
 }
-

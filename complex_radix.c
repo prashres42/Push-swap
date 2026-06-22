@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   complex_radix.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:55:23 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 20:03:05 by ppourraj         ###   ########.fr       */
+/*   Created: 2026/06/11 16:09:39 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/06/11 17:51:59 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **src, t_stack **dest)
+int get_max_bits(int size)
 {
-	t_stack	*top;
-
-	if (!src)
-		return ;
-	top = *src;
-	*src = (*src)->next;
-	top->next = *dest;
-	*dest = top;
+    
 }
 
-void pa(t_stack **a, t_stack **b)
+void radix_sort(t_stack *a, t_stack *b)
 {
-    push(a, b);
-    write(1, "pa\n", 3);
-}
+    int max_bits;
+    int size;
 
-void pb(t_stack **a, t_stack **b)
-{
-    push(b, a);
-    write(1, "pb\n", 3);
+    size = a->size;
+    max_bits = get_max_bits(size);
 }

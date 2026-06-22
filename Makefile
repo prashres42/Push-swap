@@ -1,25 +1,41 @@
-NAME	= push_swap.a
-CC	= cc
-CFLAGS	= -Wall -Werror -Wextra
-SRCS =	check_flags.c swap.c push.c reverse_r.c rotate.c\
-		simple_selection.c main.c\
+NAME = push_swap
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-OBJS = $(SRCS:.c=.o)
+LIBFT_DIR = LIBFT/
+LIBFT = $(LIBFT_DIR)libft.a
 
-all: $(NAME)
+PRINTF_DIR = ft_printf/
+PRINTF = $(PRINTF_DIR)libftprintf.a
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+SRC	= 	bench_utils.c disorder.c error_free.c flags_utils.c push_swap.c parse_utils.c stack_utils.c\
+		check_flags.c 
+OBJ	= $(SRC:.c=.o)
 
-%.o: %.c $(NAME)
+all: $(LIBFT) $(PRINTF) $(NAME)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+$(PRINTF):
+	make -C $(PRINTF_DIR)
+
+$(NAME): $(OBJ) $(LIBFT) $(PRINTF)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME) -lm
+
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
+	make -C $(LIBFT_DIR) clean
+	make -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
+	make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re

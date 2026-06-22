@@ -6,41 +6,47 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:12:52 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/10 17:46:06 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/22 20:04:31 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **top)
+static void	rotate(t_stack *stack)
 {
-	t_stack	*pre_top;
-	t_stack	*bottom;
+	t_node	*pre_top;
+	t_node	*bottom;
 
-	pre_top = *top;
-	*top = (*top)->next;
-	bottom = *top;
+	pre_top = stack->top;
+	stack->top = stack->top->next;
+	bottom = stack->top;
 	while (bottom->next)
 		bottom = bottom->next;
 	pre_top->next = NULL;
 	bottom->next = pre_top;
 }
 
-void ra(t_stack **a)
+void ra(t_stacks *data, t_bench *bench)
 {
-    rotate(*a);
+    rotate(data->a);
+	bench->total_ops++;
+	bench->ra++;
     write(1, "ra\n", 3);
 }
 
-void rb(t_stack **b)
+void rb(t_stacks *data, t_bench *bench)
 {
-    rotate(*b);
+    rotate(data->b);
+	bench->total_ops++;
+	bench->rb++;
     write(1, "rb\n", 3);
 }
 
-void rr(t_stack **a, t_stack **b)
+void rr(t_stacks *data, t_bench *bench)
 {
-    rotate(*a);
-    rotate(*b);
+    rotate(data->a);
+    rotate(data->b);
+	bench->total_ops++;
+	bench->rr++;
     write(1, "rr\n", 3);
 }

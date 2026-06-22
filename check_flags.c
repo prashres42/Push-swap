@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:57:18 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/10 18:51:55 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/22 20:00:31 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int ft_strcmp(const char *s1, const  char *s2)
 {
     while(*s1 == *s2 && *s1)
     {
-        *s1++;
-        *s2++;
+        s1++;
+        s2++;
     }
     return ((unsigned char)*s1 - (unsigned char)*s2);
 }
@@ -56,4 +56,5 @@ t_flags *check_flags(char **argv)
     flags_values->bench = 0;
     while (*argv && ((*argv)[0] == '-' && (*argv)[1] == '-'))
         handle_flags(flags_values, *argv++);
+    return (flags_values);
 }

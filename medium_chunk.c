@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   medium_chunk.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:55:23 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 20:03:05 by ppourraj         ###   ########.fr       */
+/*   Created: 2026/06/19 11:32:24 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/06/22 17:54:01 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **src, t_stack **dest)
+static int	ft_sqrt(int num)
 {
-	t_stack	*top;
+	int i;
 
-	if (!src)
-		return ;
-	top = *src;
-	*src = (*src)->next;
-	top->next = *dest;
-	*dest = top;
+	i = 1;
+	while (i * i < num)
+		i++;
+	return (i);
 }
 
-void pa(t_stack **a, t_stack **b)
+static void	chunk_sort(t_stacks *data, int print, t_bench_status *bench,
+			int *chunk)
 {
-    push(a, b);
-    write(1, "pa\n", 3);
-}
+	int i;
 
-void pb(t_stack **a, t_stack **b)
-{
-    push(b, a);
-    write(1, "pb\n", 3);
+	i = 0;
+	while (data->a->size > 0)
+	{
+		if (data->a->top->index <= 1)
+		{
+			pb()
+		}
+	}
+	
 }

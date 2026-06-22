@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:55:23 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 20:03:05 by ppourraj         ###   ########.fr       */
+/*   Created: 2026/06/22 20:00:48 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/06/22 20:00:56 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **src, t_stack **dest)
+double compute_disorder(t_stack *stack)
 {
-	t_stack	*top;
+	t_node *i;
+	t_node *j;
+	int mistakes;
+	int total_pairs;
 
-	if (!src)
-		return ;
-	top = *src;
-	*src = (*src)->next;
-	top->next = *dest;
-	*dest = top;
-}
-
-void pa(t_stack **a, t_stack **b)
-{
-    push(a, b);
-    write(1, "pa\n", 3);
-}
-
-void pb(t_stack **a, t_stack **b)
-{
-    push(b, a);
-    write(1, "pb\n", 3);
+	if(!stack || stack->size < 2)
+		return(0);
+	mistakes = 0;
+	total_pairs = (stack->size * ((stack->size - 1) / 2));
+	i = stack->top;
+	while (i)
+	{
+		j = i->next;
+		while(j)
+		{
+			if(i->value > j->value)
+			{
+				mistakes++;
+				j = j->next;;
+			}
+		}
+		i = i->next;
+	}
+	return((double)mistakes/total_pairs);
 }
