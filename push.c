@@ -6,32 +6,38 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:55:23 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 20:03:05 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/24 17:59:39 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **src, t_stack **dest)
+static void	push(t_stack *src, t_stack *dest)
 {
-	t_stack	*top;
+	t_node	*first;
 
-	if (!src)
+	if (!src || src->size == 0)
 		return ;
-	top = *src;
-	*src = (*src)->next;
-	top->next = *dest;
-	*dest = top;
+	first = src->top;
+	src->top = first->next;
+	first->next = dest->top;
+	dest->top = first;
+	src->size--;
+	dest->size++;
 }
 
-void pa(t_stack **a, t_stack **b)
+void pa(t_stacks *data, t_bench *bench)
 {
-    push(a, b);
+    push(data->a, data->b);
+	bench->total_ops++;
+	bench->pa++;
     write(1, "pa\n", 3);
 }
 
-void pb(t_stack **a, t_stack **b)
+void pb(t_stacks *data, t_bench *bench)
 {
-    push(b, a);
+    push(data->b, data->a);
+	bench->total_ops++;
+	bench->pb++;
     write(1, "pb\n", 3);
 }

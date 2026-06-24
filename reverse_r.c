@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:19:25 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 20:04:13 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/24 17:31:53 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void rra(t_stacks *data, t_bench *bench)
     reverse_rotate(data->a);
 	bench->total_ops++;
 	bench->rra++;
-    write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }
 
 void rrb(t_stacks *data, t_bench *bench)

@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:26:58 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 20:05:09 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/24 18:03:44 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void sort_three(t_stack *a)
 	mid = a->top->next->value;
 	bot = a->top->next->next->value;
 	if (top > mid && mid < bot && top < bot)
-        sa(a);
+        sa();
     else if (top > mid && mid > bot)
 	{
         sa(a);

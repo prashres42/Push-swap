@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:28:32 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/12 17:56:11 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:55:03 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,28 @@ static void	swap(t_stack *stack)
 	stack->top->next->value = temp;
 }
 
-void sa(t_stack **a)
+void sa(t_stacks *data, t_bench *bench)
 {
-    swap(*a);
+    swap(data->a);
+	bench->total_ops++;
+	bench->sa++;
     write(1, "sa\n", 3);
 }
 
-void sb(t_stack **b)
+void sb(t_stacks *data, t_bench *bench)
 {
-    swap(*b);
+    swap(data->b);
+	bench->total_ops++;
+	bench->sb++;
     write(1, "sb\n", 3);
 }
 
-void ss(t_stack **a, t_stack **b)
+void ss(t_stacks *data, t_bench *bench)
 {
-    swap(*a);
-    swap(*b);
+    swap(data->a);
+    swap(data->b);
+	bench->total_ops++;
+	bench->ss++;
     write(1, "ss\n", 3);
 }
 
