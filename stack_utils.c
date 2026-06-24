@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:39:06 by prashres          #+#    #+#             */
-/*   Updated: 2026/06/19 12:09:58 by prashres         ###   ########.fr       */
+/*   Updated: 2026/06/24 18:13:10 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int is_sorted(t_stack *stack)
 		return (1);
 	temp = stack->top;
 	while(temp->next)
-	{
+	{        
 		if(temp->value > temp->next->value)
 			return(0);
 		temp = temp->next;
@@ -56,6 +56,7 @@ void stack_addback(t_stack *stack, t_node *node)
 	
 	if(!node)
 		return;
+    node->next = NULL;
 	if(!stack->top)
 	{
 		stack->top = node;

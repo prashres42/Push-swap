@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 12:32:03 by prashres          #+#    #+#             */
-/*   Updated: 2026/06/19 16:38:39 by prashres         ###   ########.fr       */
+/*   Updated: 2026/06/24 18:10:59 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,19 @@ int main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	printf("hello\n");
 	ini_var(&data, &flags, &bench);
 	argv++;
 	if((*argv)[0] == '-' && (*argv)[1] == '-')
 		flags = check_flags(argv);
-	printf("hello2\n");
 	argv += flags_total(flags);
-	printf("hello");
 	bench = ini_bench();
-	printf("hello3\n");
 	if(*argv)
 		data = parse_args(argv, bench_flags(bench, flags));
-	printf("hello4\n");
-		if(!data)
+	if(!data)
 		return(free_memory(bench,flags),1);
 	if(is_sorted(data->a))
 		return(free_memory(bench,flags),0);
-	a = bench->disorder= (int)(compute_disorder(data->a) * 10000);
-	// algorithms(data, bench, flags);	
-	printf("%d", a);
-	printf("hello5\n");
+	bench->disorder = (int)(compute_disorder(data->a) * 10000);
+	a = bench->disorder;
 }
 

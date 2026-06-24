@@ -10,7 +10,7 @@ double compute_disorder(t_stack *stack)
 	if(!stack || stack->size < 2)
 		return(0);
 	mistakes = 0;
-	total_pairs = (stack->size * ((stack->size - 1) / 2));
+	total_pairs = ((stack->size * (stack->size - 1)) / 2);
 	i = stack->top;
 	while (i)
 	{
@@ -18,10 +18,8 @@ double compute_disorder(t_stack *stack)
 		while(j)
 		{
 			if(i->value > j->value)
-			{
 				mistakes++;
-				j = j->next;;
-			}
+			j = j->next;;
 		}
 		i = i->next;
 	}

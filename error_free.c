@@ -9,12 +9,13 @@ int error_syntax(char **a)
 	j = 0; 
 	while(a[i])
 	{
+		j = 0;
+		if (a[i][j] == '-' || a[i][j] == '+')
+        	j++;
 		while(a[i][j])
 		{
 			if(!ft_isdigit(a[i][j]))
-			{
 				return (1);
-			}
 			j++;
 		}
 		i++;
