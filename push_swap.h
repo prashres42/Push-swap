@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/26 12:14:02 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/26 15:37:54 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,19 @@ t_stack	*new_stack(void);
 t_node *node_new(int value, t_stacks *data, t_ptr_b_f ptr);
 void stack_addback(t_stack *stack, t_node *node);
 
-void rra(t_stacks *data, t_bench *bench);
-void rrb(t_stacks *data, t_bench *bench);
-void rrr(t_stacks *data, t_bench *bench);
-void ra(t_stacks *data, t_bench *bench);
-void rb(t_stacks *data, t_bench *bench);
-void rr(t_stacks *data, t_bench *bench);
-void sa(t_stacks *data, t_bench *bench);
-void sb(t_stacks *data, t_bench *bench);
-void ss(t_stacks *data, t_bench *bench);
+void rra(t_stacks *data, t_bench *bench, int print);
+void rrb(t_stacks *data, t_bench *bench, int print);
+void rrr(t_stacks *data, t_bench *bench, int print);
+void ra(t_stacks *data, t_bench *bench, int print);
+void rb(t_stacks *data, t_bench *bench, int print);
+void rr(t_stacks *data, t_bench *bench, int print);
+void sa(t_stacks *data, t_bench *bench, int print);
+void sb(t_stacks *data, t_bench *bench, int print);
+void ss(t_stacks *data, t_bench *bench, int print);
 
 int find_min(t_stack *stack);
+void selection_sort(t_stacks *data, t_bench *bench, int print);
+void min_to_top(t_stacks *data, int pos, t_bench *bench, int print);
+
 
 #endif

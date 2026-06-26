@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 11:32:24 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/24 19:00:47 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/26 15:38:08 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static int	ft_sqrt(int num)
 	return (i);
 }
 
-static void	chunk_sort(t_stacks *data, t_bench *bench, int *chunk)
+static void	chunk_sort(t_stacks *data, t_bench *bench, int print,
+			int *chunk)
 {
 	int i;
 
@@ -31,28 +32,40 @@ static void	chunk_sort(t_stacks *data, t_bench *bench, int *chunk)
 	{
 		if (data->a->top->index <= 1)
 		{
-			pb(data, bench);
-			rb(data, bench);
+			pb(data, bench, print);
+			rb(data, bench, print);
 			i++;
 		}
 		else if (data->a->top->index > i + *chunk)
 		{
-			pa(data, bench);
+			pa(data, bench, print);
 			i++;
 		}
 		else
 		{
-			ra(data, bench);
+			ra(data, bench, print);
 			i++;
 		}
 	}
 	
 }
 
-void medium_sort(t_stacks *data, int print, t_bench *bench)
+void	sort_medium(t_stacks *data, t_bench *bench, int print)
 {
-    int chunk;
-    
-    chunk = ft_sqrt(data->a->size);
-    chunk_sort(data, bench, chunk);
+	int	chunk;
+	int	pos;
+
+	chunk = ft_sqrt(data->a->size);
+	sort_medium_helper(data, print, bench, &chunk);
+	while (data->b->size > 0)
+	{
+		pos = find_max_pos(data->b);
+		if (pos <= data->b->size / 2)
+			while (pos-- > 0)
+				rb(data, bench, print);
+		else
+			while (pos++ < data->b->size)
+				rrb(data, bench, print);
+		pa(data, print, bench);
+	}
 }
