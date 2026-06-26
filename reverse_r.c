@@ -6,11 +6,9 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:19:25 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/24 17:31:53 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/26 12:57:08 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
@@ -32,27 +30,30 @@ static void	reverse_rotate(t_stack *stack)
 	new_bottom->next = NULL;
 }
 
-void rra(t_stacks *data, t_bench *bench)
+void rra(t_stacks *data, t_bench *bench, int print)
 {
     reverse_rotate(data->a);
 	bench->total_ops++;
 	bench->rra++;
-	write(1, "rra\n", 4);
+	if (print)
+		write(1, "rra\n", 4);
 }
 
-void rrb(t_stacks *data, t_bench *bench)
+void rrb(t_stacks *data, t_bench *bench, int print)
 {
     reverse_rotate(data->b);
 	bench->total_ops++;
 	bench->rrb++;
-    write(1, "rrb\n", 4);
+	if (print)
+    	write(1, "rrb\n", 4);
 }
 
-void rrr(t_stacks *data, t_bench *bench)
+void rrr(t_stacks *data, t_bench *bench, int print)
 {
     reverse_rotate(data->a);
     reverse_rotate(data->b);
 	bench->total_ops++;
 	bench->rrr++;
-    write(1, "rrr\n", 4);
+	if (print)
+    	write(1, "rrr\n", 4);
 }

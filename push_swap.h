@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/24 17:35:26 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/26 12:14:02 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ void rr(t_stacks *data, t_bench *bench);
 void sa(t_stacks *data, t_bench *bench);
 void sb(t_stacks *data, t_bench *bench);
 void ss(t_stacks *data, t_bench *bench);
+
+int find_min(t_stack *stack);
 
 #endif

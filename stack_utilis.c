@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:39:06 by prashres          #+#    #+#             */
-/*   Updated: 2026/06/22 20:05:59 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/06/26 12:07:19 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,33 @@ int is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+int find_min(t_stack *stack)
+{
+	t_node	*current;
+	int		i;
+	int		min_index;
+	int		min_value;
+
+	if (!stack || stack->size == 0)
+		return (-1);
+	i = 0;
+	min_index = 0;
+	current = stack->top;
+	min_value = current->value;
+	while (current)
+	{
+		if (current->value < min_value)
+		{
+			min_value = current->value;
+			min_index = i;
+		}
+		current = current->next;
+		i++;
+	}
+	return (min_index);
+}
+
 t_stack	*new_stack(void)
 {
 	t_stack *new;
@@ -38,6 +65,7 @@ t_stack	*new_stack(void)
 	new->top = NULL;
 	return (new);
 }
+
 t_node *node_new(int value, t_stacks *data, t_ptr_b_f ptr)
 {
 	t_node *new;
@@ -50,6 +78,7 @@ t_node *node_new(int value, t_stacks *data, t_ptr_b_f ptr)
 	new->next = NULL;
 	return(new);
 }
+
 void stack_addback(t_stack *stack, t_node *node)
 {
 	t_node *temp;
