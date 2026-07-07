@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 12:32:03 by prashres          #+#    #+#             */
-/*   Updated: 2026/06/24 18:10:59 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:16:49 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 	t_stacks *data;
 	t_flags *flags;
 	t_bench *bench;
-	int a = 0;
 
 	if (argc < 2)
 		return (0);
@@ -41,6 +40,7 @@ int main(int argc, char **argv)
 	if(is_sorted(data->a))
 		return(free_memory(bench,flags),0);
 	bench->disorder = (int)(compute_disorder(data->a) * 10000);
-	a = bench->disorder;
+	implement_algo(data, bench, flags);
+	return 0;
 }
 

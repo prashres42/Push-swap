@@ -1,40 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_free.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/26 15:20:00 by prashres          #+#    #+#             */
+/*   Updated: 2026/07/07 14:46:50 by prashres         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-int error_syntax(char **a)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0; 
-	while(a[i])
-	{
-		j = 0;
-		if (a[i][j] == '-' || a[i][j] == '+')
-        	j++;
-		while(a[i][j])
-		{
-			if(!ft_isdigit(a[i][j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-int	error_repitition(t_node *a, int nbr)
-{
-	if(a == NULL)
-		return (0);
-	while(a)
-	{
-		if(a->value == nbr)
-			return(1);
-		a = a->next;
-	}
-	return (0);
-}
 void ft_error(t_stacks *data, t_ptr_b_f ptr, char **splitted)
 {
 	if(splitted)
@@ -43,6 +19,7 @@ void ft_error(t_stacks *data, t_ptr_b_f ptr, char **splitted)
 	write (2, "Error\n", 7);
 	exit(1);
 }
+
 void free_data(t_stacks *data, t_bench *bench, t_flags *flags)
 {
 	if(!data)
@@ -57,6 +34,7 @@ void free_data(t_stacks *data, t_bench *bench, t_flags *flags)
 		stack_free(data->b);
 	free(data);
 }
+
 void free_split(char **splitted)
 {
 	int i;
@@ -69,6 +47,7 @@ void free_split(char **splitted)
 	}
 	free(splitted);
 }
+
 void stack_free(t_stack *stack)
 {
 	t_node *temp;
@@ -82,8 +61,10 @@ void stack_free(t_stack *stack)
 	}
 	free(stack);
 }
+
 void free_memory(t_bench *bench, t_flags *flag)
 {
 	free(flag);
 	free(bench);
 }
+

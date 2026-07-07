@@ -9,7 +9,7 @@ PRINTF_DIR = ft_printf/
 PRINTF = $(PRINTF_DIR)libftprintf.a
 
 SRC	= 	bench_utils.c disorder.c error_free.c flags_utils.c push_swap.c parse_utils.c stack_utils.c\
-		check_flags.c 
+		check_flags.c parse_error.c 
 OBJ	= $(SRC:.c=.o)
 
 all: $(LIBFT) $(PRINTF) $(NAME)

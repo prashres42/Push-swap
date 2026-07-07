@@ -6,25 +6,25 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:57:18 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/24 18:12:11 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:55:34 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int ft_strcmp(const char *s1, const  char *s2)
+static int	ft_strcmp(const char *s1, const  char *s2)
 {
-    while(*s1 == *s2 && *s1)
-    {
-        s1++;
-        s2++;
-    }
-    return ((unsigned char)*s1 - (unsigned char)*s2);
+	while(*s1 == *s2 && *s1)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
 static void handle_flags(t_flags *flags_values, char *argv)
 {
-    if (ft_strcmp(argv, "--simple") == 0)
+	if (ft_strcmp(argv, "--simple") == 0)
 		flags_values->simple += 1;
 	else if (ft_strcmp(argv, "--medium") == 0)
 		flags_values->medium += 1;
@@ -44,17 +44,12 @@ static void handle_flags(t_flags *flags_values, char *argv)
 
 t_flags *check_flags(char **argv)
 {
-    t_flags *flags_values;
+	t_flags *flags_values;
 
-    flags_values = malloc(sizeof(t_flags));
-    if (!flags_values)
-        return (NULL);
-    flags_values->simple = 0;
-    flags_values->medium = 0;
-    flags_values->complex = 0;
-    flags_values->adaptive = 0;
-    flags_values->bench = 0;
-    while (*argv && ((*argv)[0] == '-' && (*argv)[1] == '-'))
-        handle_flags(flags_values, *argv++);
-    return (flags_values);
+	flags_values = ft_calloc(1, sizeof(t_flags));
+	if (!flags_values)
+		return (NULL);
+	while (*argv && ((*argv)[0] == '-' && (*argv)[1] == '-'))
+		handle_flags(flags_values, *argv++);
+	return (flags_values);
 }

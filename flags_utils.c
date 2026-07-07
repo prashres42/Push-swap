@@ -22,9 +22,7 @@ int compare_flags(char *argv, t_flags *flag_value)
 	else if(ft_strcmp(argv, "--bench") == 0)
 		flag_value->bench += 1;	
 	else
-	{
 		return (-1);
-	}
 	return (0);
 }
 static void ini_flags(t_flags *flag_value)

@@ -26,7 +26,8 @@ long ft_atol(const char *str)
 	}
 	return (result * sign);
 }
-static char **split_check (char **splitted, char **argv, t_stacks *data, t_ptr_b_f ptr)
+
+static char **split_check(char **splitted, char **argv, t_stacks *data, t_ptr_b_f ptr)
 {
 	splitted = ft_split(*argv, ' ');
 	if(!splitted || !*splitted)
@@ -55,9 +56,7 @@ static int pars_args_helper(char **splitted, char **argv, t_stacks *data, t_ptr_
 			if(error_repitition(data->a->top, (int)nbr))
 				ft_error(data, ptr, splitted);
 			new = node_new(nbr, data, ptr);
-
 			stack_addback(data->a, new);
-
 			i++;
 		}
 		free_split(splitted);

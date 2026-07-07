@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder.c                                         :+:      :+:    :+:   */
+/*   parse_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/07 14:55:59 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/07 14:56:02 by prashres         ###   ########.fr       */
+/*   Created: 2026/06/26 15:19:38 by prashres          #+#    #+#             */
+/*   Updated: 2026/06/26 15:19:39 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-double	compute_disorder(t_stack *stack)
+int error_syntax(char **a)
 {
-	t_node	*i;
-	t_node	*j;
-	int		mistakes;
-	int		total_pairs;
+	int i;
+	int j;
 
-	if (!stack || stack->size < 2)
-		return (0);
-	mistakes = 0;
-	total_pairs = (stack->size * (stack->size - 1) / 2);
-	i = stack->top;
-	while (i)
+	i = 0;
+	j = 0; 
+	while(a[i])
 	{
-		j = i->next;
-		while (j)
+		j = 0;
+		if (a[i][j] == '-' || a[i][j] == '+')
+        	j++;
+		while(a[i][j])
 		{
-			if (i->value > j->value)
-				mistakes++;
-			j = j->next;
+			if(!ft_isdigit(a[i][j]))
+				return (1);
+			j++;
 		}
-		i = i->next;
+		i++;
 	}
-	return ((double)mistakes / total_pairs);
+	return (0);
+}
+
+int	error_repitition(t_node *a, int nbr)
+{
+	if(a == NULL)
+		return (0);
+	while(a)
+	{
+		if(a->value == nbr)
+			return(1);
+		a = a->next;
+	}
+	return (0);
 }

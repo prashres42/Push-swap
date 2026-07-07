@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:12:52 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/19 13:24:52 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/07 14:57:23 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,30 @@ static void	rotate(t_stack *stack)
 	bottom->next = pre_top;
 }
 
-void ra(t_stacks *data, t_bench *bench)
+void	ra(t_stacks *data, t_bench *bench, int print)
 {
-    rotate(data->a);
+	rotate(data->a);
 	bench->total_ops++;
 	bench->ra++;
-    write(1, "ra\n", 3);
+	if (print)
+		write(1, "ra\n", 3);
 }
 
-void rb(t_stacks *data, t_bench *bench)
+void	rb(t_stacks *data, t_bench *bench, int print)
 {
-    rotate(data->b);
+	rotate(data->b);
 	bench->total_ops++;
 	bench->rb++;
-    write(1, "rb\n", 3);
+	if (print)
+		write(1, "rb\n", 3);
 }
 
-void rr(t_stacks *data, t_bench *bench)
+void	rr(t_stacks *data, t_bench *bench, int print)
 {
-    rotate(data->a);
-    rotate(data->b);
+	rotate(data->a);
+	rotate(data->b);
 	bench->total_ops++;
 	bench->rr++;
-    write(1, "rr\n", 3);
+	if (print)
+		write(1, "rr\n", 3);
 }
