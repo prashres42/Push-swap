@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:39:06 by prashres          #+#    #+#             */
-/*   Updated: 2026/06/26 12:07:19 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:44:38 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_stack	*new_stack(void)
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		return(NULL);
+		return (NULL);
 	new->size = 0;
 	new->top = NULL;
 	return (new);

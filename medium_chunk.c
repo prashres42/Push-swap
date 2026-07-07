@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 11:32:24 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/26 15:38:08 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:39:39 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_sqrt(int num)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i * i < num)
@@ -25,7 +25,7 @@ static int	ft_sqrt(int num)
 static void	chunk_sort(t_stacks *data, t_bench *bench, int print,
 			int *chunk)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (data->a->size > 0)
@@ -47,7 +47,6 @@ static void	chunk_sort(t_stacks *data, t_bench *bench, int print,
 			i++;
 		}
 	}
-	
 }
 
 void	sort_medium(t_stacks *data, t_bench *bench, int print)

@@ -6,15 +6,15 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:26:58 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/26 15:36:51 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/07 12:42:36 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void min_to_top(t_stacks *data, int pos, t_bench *bench, int print)
+void	min_to_top(t_stacks *data, int pos, t_bench *bench, int print)
 {
-	int moves;
+	int	moves;
 
 	if (pos <= data->a->size / 2)
 	{
@@ -34,9 +34,10 @@ void min_to_top(t_stacks *data, int pos, t_bench *bench, int print)
 		}
 	}
 }
-void selection_sort(t_stacks *data, t_bench *bench, int print)
+
+void	selection_sort(t_stacks *data, t_bench *bench, int print)
 {
-	int pos;
+	int	pos;
 
 	while (!is_sorted(data->a))
 	{
