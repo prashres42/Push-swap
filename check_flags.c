@@ -6,9 +6,10 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:57:18 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/07 12:53:56 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/08 17:10:42 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -53,4 +54,3 @@ t_flags *check_flags(char **argv)
 		handle_flags(flags_values, *argv++);
 	return (flags_values);
 }
-

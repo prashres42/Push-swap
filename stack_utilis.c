@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:39:06 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/07 12:44:38 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:13:33 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,6 @@ int is_sorted(t_stack *stack)
 		temp = temp->next;
 	}
 	return (1);
-}
-
-int find_min(t_stack *stack)
-{
-	t_node	*current;
-	int		i;
-	int		min_index;
-	int		min_value;
-
-	if (!stack || stack->size == 0)
-		return (-1);
-	i = 0;
-	min_index = 0;
-	current = stack->top;
-	min_value = current->value;
-	while (current)
-	{
-		if (current->value < min_value)
-		{
-			min_value = current->value;
-			min_index = i;
-		}
-		current = current->next;
-		i++;
-	}
-	return (min_index);
 }
 
 t_stack	*new_stack(void)
