@@ -6,16 +6,15 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:57:18 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/08 17:10:42 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/09 19:44:10 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-static int	ft_strcmp(const char *s1, const  char *s2)
+static int	ft_strcmp(const char *s1, const char *s2)
 {
-	while(*s1 == *s2 && *s1)
+	while (*s1 == *s2 && *s1)
 	{
 		s1++;
 		s2++;
@@ -23,7 +22,7 @@ static int	ft_strcmp(const char *s1, const  char *s2)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-static void handle_flags(t_flags *flags_values, char *argv)
+static void	handle_flags(t_flags *flags_values, char *argv)
 {
 	if (ft_strcmp(argv, "--simple") == 0)
 		flags_values->simple += 1;
@@ -43,9 +42,9 @@ static void handle_flags(t_flags *flags_values, char *argv)
 	}
 }
 
-t_flags *check_flags(char **argv)
+t_flags	*check_flags(char **argv)
 {
-	t_flags *flags_values;
+	t_flags	*flags_values;
 
 	flags_values = ft_calloc(1, sizeof(t_flags));
 	if (!flags_values)

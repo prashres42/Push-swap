@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 19:59:08 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/06/22 19:59:28 by ppourraj         ###   ########.fr       */
+/*   Created: 2026/07/09 18:56:53 by prashres          #+#    #+#             */
+/*   Updated: 2026/07/09 19:43:01 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_bench	*ini_bench(void)
 	bench->rrr = 0;
 	return (bench);
 }
+
 t_ptr_b_f bench_flags(t_bench *bench, t_flags *flags)
 {
 	t_ptr_b_f ptr;

@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 11:32:24 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/08 17:09:43 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/09 19:45:16 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ void	sort_medium(t_stacks *data, t_bench *bench, int print)
 		pa(data, bench, print);
 	}
 }
-

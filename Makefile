@@ -5,11 +5,12 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = LIBFT/
 LIBFT = $(LIBFT_DIR)libft.a
 
-PRINTF_DIR = Printf/
+PRINTF_DIR = ft_printf/
 PRINTF = $(PRINTF_DIR)libftprintf.a
 
 SRC	= 	bench_utils.c disorder.c error_free.c flags_utils.c push_swap.c parse_utils.c stack_utils.c\
-		check_flags.c 
+		check_flags.c parse_error.c complex_radix.c implement_algo.c medium_chunk.c push.c reverse_r.c\
+		rotate.c swap.c simple_selection.c stack_utils2.c
 OBJ	= $(SRC:.c=.o)
 
 all: $(LIBFT) $(PRINTF) $(NAME)

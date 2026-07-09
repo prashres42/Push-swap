@@ -6,13 +6,13 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:26:58 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/08 12:01:55 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/09 19:46:45 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	min_to_top(t_stacks *data, int pos, t_bench *bench, int print)
+void	min_to_top(t_stacks *data, int pos, t_bench *bench, int print)
 {
 	int	moves;
 
@@ -39,12 +39,14 @@ void	selection_sort(t_stacks *data, t_bench *bench, int print)
 {
 	int	pos;
 
+	if (!data->a->top || !data->a->top->next)
+		return ;
 	while (!is_sorted(data->a))
 	{
 		pos = find_min_index(data->a);
 		min_to_top(data, pos, bench, print);
-		pb(data, bench);
+		pb(data, bench, print);
 	}
 	while (data->b->size > 0)
-		pa(data, bench);
+		pa(data, bench, print);
 }

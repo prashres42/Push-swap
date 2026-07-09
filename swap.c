@@ -6,7 +6,7 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:28:32 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/07 12:43:15 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/09 19:46:50 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,3 @@ void	ss(t_stacks *data, t_bench *bench, int print)
 	if (print)
 		write(1, "ss\n", 3);
 }
-
-// testing swap function
-/* int main(void)
-{
-	t_stack *first;
-	t_stack *second;
-
-	first = malloc(sizeof(t_stack));
-	second = malloc(sizeof(t_stack));
-
-	first->value = 10;
-	first->next = second;
-
-	second->value = 20;
-	second->next = NULL;
-
-	swap(first);
-	printf("%d", first->value);
-	free(first);
-	free(second);
-} */

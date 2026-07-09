@@ -6,13 +6,14 @@
 /*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/09 19:37:51 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/09 19:46:15 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "libft.h"
+# include "LIBFT/libft.h"
+# include "ft_printf/ft_printf.h"
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -39,7 +40,6 @@ typedef struct s_stacks
 	t_stack	*a;
 	t_stack	*b;
 }			t_stacks;
-
 typedef struct s_flags
 {
 	int	simple;
@@ -48,7 +48,6 @@ typedef struct s_flags
 	int	adaptive;
 	int	bench;
 }		t_flags;
-
 typedef struct s_bench
 {
 	int	disorder;
@@ -66,7 +65,6 @@ typedef struct s_bench
 	int	rrb;
 	int	rrr;
 }		t_bench;
-
 typedef struct s_pointer_bench_flag
 {
 	t_flags	*flags;
@@ -86,13 +84,11 @@ void		free_split(char **splitted);
 void		stack_free(t_stack *stack);
 void		free_memory(t_bench *bench, t_flags *flag);
 
-// Flags
 int			compare_flags(char *argv, t_flags *flag_value);
 t_flags		*check_flags(char **argv);
 t_flags		*check_flag(char **argv);
 int			flags_total(t_flags *flags);
 
-// Stack & Parsing
 t_stacks	*parse_args(char **argv, t_ptr_b_f ptr_b_f);
 long		ft_atol(const char *str);
 int			is_sorted(t_stack *stack);
@@ -104,7 +100,6 @@ int			find_max_index(t_stack *stack);
 void 		assign_indexes(t_stacks *data);
 void		print_stack(t_stack *stack);
 
-// Operations
 void		rra(t_stacks *data, t_bench *bench, int print);
 void		rrb(t_stacks *data, t_bench *bench, int print);
 void		rrr(t_stacks *data, t_bench *bench, int print);
@@ -114,10 +109,14 @@ void		rr(t_stacks *data, t_bench *bench, int print);
 void		sa(t_stacks *data, t_bench *bench, int print);
 void		sb(t_stacks *data, t_bench *bench, int print);
 void		ss(t_stacks *data, t_bench *bench, int print);
+void		pa(t_stacks *data, t_bench *bench, int print);
+void		pb(t_stacks *data, t_bench *bench, int print);
 
-// Algorithms
 void		selection_sort(t_stacks *data, t_bench *bench, int print);
 void		sort_medium(t_stacks *data, t_bench *bench, int print);
+void		min_to_top(t_stacks *data, int pos, t_bench *bench, int print);
 void		radix_sort(t_stacks *data, t_bench *bench, int print);
+void		implement_algo(t_stacks *data, t_bench *bench, t_flags *flag);
+void		adaptive_sort(t_stacks *data, t_bench *bench, int print);
 
 #endif
