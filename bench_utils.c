@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/09 18:56:53 by prashres          #+#    #+#             */
+/*   Updated: 2026/07/09 18:56:56 by prashres         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_bench	*ini_bench(void)
@@ -23,6 +35,7 @@ t_bench	*ini_bench(void)
 	bench->rrr = 0;
 	return (bench);
 }
+
 t_ptr_b_f bench_flags(t_bench *bench, t_flags *flags)
 {
 	t_ptr_b_f ptr;

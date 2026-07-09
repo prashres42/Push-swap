@@ -6,12 +6,14 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/07 15:17:46 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/09 18:03:58 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "LIBFT/libft.h"
+# include "ft_printf/ft_printf.h"
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -93,6 +95,10 @@ int			is_sorted(t_stack *stack);
 t_stack		*new_stack(void);
 t_node		*node_new(int value, t_stacks *data, t_ptr_b_f ptr);
 void		stack_addback(t_stack *stack, t_node *node);
+int			find_min_index(t_stack *stack);
+int			find_max_index(t_stack *stack);
+void 		assign_indexes(t_stacks *data);
+void		print_stack(t_stack *stack);
 
 void		rra(t_stacks *data, t_bench *bench, int print);
 void		rrb(t_stacks *data, t_bench *bench, int print);
@@ -103,12 +109,14 @@ void		rr(t_stacks *data, t_bench *bench, int print);
 void		sa(t_stacks *data, t_bench *bench, int print);
 void		sb(t_stacks *data, t_bench *bench, int print);
 void		ss(t_stacks *data, t_bench *bench, int print);
+void		pa(t_stacks *data, t_bench *bench, int print);
+void		pb(t_stacks *data, t_bench *bench, int print);
 
-int			find_min(t_stack *stack);
 void		selection_sort(t_stacks *data, t_bench *bench, int print);
+void		sort_medium(t_stacks *data, t_bench *bench, int print);
 void		min_to_top(t_stacks *data, int pos, t_bench *bench, int print);
 void		radix_sort(t_stacks *data, t_bench *bench, int print);
-void 		implement_algo(t_stacks *data, t_flags *flags, t_bench *bench)
-
+void		implement_algo(t_stacks *data, t_bench *bench, t_flags *flag);
+void		adaptive_sort(t_stacks *data, t_bench *bench, int print);
 
 #endif
