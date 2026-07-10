@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:22:56 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/10 16:57:48 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:16:48 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 	int		print;
 
 	print = 1;
-	if(flag->bench == 1)
+	if(flag && flag->bench == 1)
 		print = 0;
 	if (!flag)
 		adaptive_sort(data, bench, 1);
-	if (flag->simple == 1)
+	else if (flag->simple == 1)
 		selection_sort(data, bench, print);
 	else if (flag->medium == 1)
 		sort_medium(data, bench, print);
