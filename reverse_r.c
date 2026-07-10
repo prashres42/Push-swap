@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_r.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:19:25 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/09 19:46:34 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:40:56 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	reverse_rotate(t_stack *stack)
 	t_node	*pre_bottom;
 	t_node	*new_bottom;
 
+	if (!stack || stack->size < 2)
+		return ;
 	pre_top = stack->top;
 	pre_bottom = stack->top;
 	new_bottom = stack->top;
