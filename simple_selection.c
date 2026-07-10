@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:26:58 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/09 18:50:51 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:02:10 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,35 @@ void	min_to_top(t_stacks *data, int pos, t_bench *bench, int print)
 		}
 	}
 }
+int find_min_index(t_stack *stack)
+{
+	t_node	*current;
+	int		i;
+	int		min_index;
+	int		min_value;
 
+	if (!stack || stack->size == 0)
+		return (-1);
+	i = 0;
+	min_index = 0;
+	current = stack->top;
+	min_value = current->value;
+	while (current)
+	{
+		if (current->value < min_value)
+		{
+			min_value = current->value;
+			min_index = i;
+		}
+		current = current->next;
+		i++;
+	}
+	return (min_index);
+}
 void	selection_sort(t_stacks *data, t_bench *bench, int print)
 {
 	int	pos;
-
+	bench->strategy = "Simple / O(n^2)"; 
 	if (!data->a->top || !data->a->top->next)
 		return ;
 	while (!is_sorted(data->a))

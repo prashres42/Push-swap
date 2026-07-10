@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:22:56 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/09 18:45:38 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:57:48 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,44 @@
 
 void	adaptive_sort(t_stacks *data, t_bench *bench, int print)
 {
-	if (bench->disorder < 0.2)
+	float disorder;
+	
+	disorder = (float)bench->disorder / 10000;
+	if (disorder < 0.2)
+	{
 		selection_sort(data, bench, print);
-	else if (bench->disorder >= 0.2 || bench->disorder < 0.5)
+		bench->strategy = "Adaptive O(n^2)";
+	}
+	else if (disorder >= 0.2 && disorder < 0.5)
+	{
 		sort_medium(data, bench, print);
-	else if (bench->disorder >= 0.5)
+		bench->strategy = "Adaptive O(n√n)";
+	}
+	else
+	{
 		radix_sort(data, bench, print);
+		bench->strategy = "Adaptive O(nlogn)";
+	}
 }
 
 void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 {
 	int		print;
 
-	print = 0;
+	print = 1;
+	if(flag->bench == 1)
+		print = 0;
 	if (!flag)
-		return ;
+		adaptive_sort(data, bench, 1);
 	if (flag->simple == 1)
 		selection_sort(data, bench, print);
 	else if (flag->medium == 1)
 		sort_medium(data, bench, print);
 	else if (flag->complex == 1)
 		radix_sort(data, bench, print);
+	else if (flag->bench == 1)
+		adaptive_sort(data, bench, print);
 	else if (flag->adaptive == 1)
 		adaptive_sort(data, bench, print);
+
 }

@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 15:02:37 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/07 15:44:47 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:27:48 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	radix_sort(t_stacks *data, t_bench *bench, int print)
 	int	size;
 	int	bit;
 	int	i;
-
+	
+	bench->strategy = "Complex / O(nlogn)"; 
 	bit = 0;
 	size = data->a->size;
 	max_bits = get_max_bits(size);

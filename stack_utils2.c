@@ -6,37 +6,13 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 18:01:44 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/09 18:54:54 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:32:17 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min_index(t_stack *stack)
-{
-	t_node	*current;
-	int		i;
-	int		min_index;
-	int		min_value;
 
-	if (!stack || stack->size == 0)
-		return (-1);
-	i = 0;
-	min_index = 0;
-	current = stack->top;
-	min_value = current->value;
-	while (current)
-	{
-		if (current->value < min_value)
-		{
-			min_value = current->value;
-			min_index = i;
-		}
-		current = current->next;
-		i++;
-	}
-	return (min_index);
-}
 
 int find_max_index(t_stack *stack)
 {
