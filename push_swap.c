@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 12:32:03 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/09 19:46:03 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:58:53 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ int	main(int argc, char **argv)
 		return (free_memory(bench, flags), 1);
 	if (is_sorted(data->a))
 		return (free_memory(bench, flags), 0);
-	bench->disorder = (compute_disorder(data->a) * 10000);
-	printf("%d", bench->disorder);
+	bench->disorder = (int)(compute_disorder(data->a) * 10000);
 	assign_indexes(data);
 	implement_algo(data, bench, flags);
+	if(flags && flags->bench)
+		print_bench(bench);
+	free_data(data, bench, flags);
 	return (0);
 }

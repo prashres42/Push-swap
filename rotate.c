@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:12:52 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/09 19:46:38 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:59:03 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	rotate(t_stack *stack)
 	t_node	*pre_top;
 	t_node	*bottom;
 
+	if (!stack || stack->size < 2)
+		return ;
 	pre_top = stack->top;
 	stack->top = stack->top->next;
 	bottom = stack->top;

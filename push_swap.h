@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/09 19:46:15 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:58:58 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_bench
 {
 	int	disorder;
 	int	total_ops;
-	int	strategy;
+	char	*strategy;
 	int	sa;
 	int	sb;
 	int	ss;
@@ -99,6 +99,8 @@ int			find_min_index(t_stack *stack);
 int			find_max_index(t_stack *stack);
 void 		assign_indexes(t_stacks *data);
 void		print_stack(t_stack *stack);
+void 		print_bench(t_bench *bench);
+
 
 void		rra(t_stacks *data, t_bench *bench, int print);
 void		rrb(t_stacks *data, t_bench *bench, int print);
