@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 18:56:53 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/09 19:43:01 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:24:47 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ t_bench	*ini_bench(void)
 	return (bench);
 }
 
-t_ptr_b_f bench_flags(t_bench *bench, t_flags *flags)
+t_ptr_b_f	bench_flags(t_bench *bench, t_flags *flags)
 {
-	t_ptr_b_f ptr;
+	t_ptr_b_f	ptr;
+
 	ptr.bench = bench;
 	ptr.flags = flags;
 	return (ptr);

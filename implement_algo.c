@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:22:56 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/10 18:16:48 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:24:02 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	adaptive_sort(t_stacks *data, t_bench *bench, int print)
 {
-	float disorder;
-	
+	float	disorder;
+
 	disorder = (float)bench->disorder / 10000;
 	if (disorder < 0.2)
 	{
@@ -36,10 +36,10 @@ void	adaptive_sort(t_stacks *data, t_bench *bench, int print)
 
 void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 {
-	int		print;
+	int	print;
 
 	print = 1;
-	if(flag && flag->bench == 1)
+	if (flag && flag->bench == 1)
 		print = 0;
 	if (!flag)
 		adaptive_sort(data, bench, 1);
@@ -53,5 +53,4 @@ void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 		adaptive_sort(data, bench, print);
 	else if (flag->adaptive == 1)
 		adaptive_sort(data, bench, print);
-
 }

@@ -6,20 +6,18 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 18:01:44 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/10 12:32:17 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:21:39 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-int find_max_index(t_stack *stack)
+int	find_max_index(t_stack *stack)
 {
-	t_node *current;
-	int i;
-	int max_index;
-	int max_value;
+	t_node	*current;
+	int		i;
+	int		max_index;
+	int		max_value;
 
 	if (!stack || stack->size == 0)
 		return (-1);
@@ -40,37 +38,37 @@ int find_max_index(t_stack *stack)
 	return (max_index);
 }
 
-void  assign_indexes(t_stacks *data)
+void	assign_indexes(t_stacks *data)
 {
-    t_node  *i;
-    t_node  *j;
-    int rank;
+	t_node	*i;
+	t_node	*j;
+	int		rank;
 
-    i = data->a->top;
-    while (i)
-    {
-        rank = 0;
-        j = data->a->top;
-        while (j)
-        {
-            if (j->value < i->value)
-                rank++;
-            j = j->next;
-        }
-        i->index = rank;
-        i = i->next;
-    }
+	i = data->a->top;
+	while (i)
+	{
+		rank = 0;
+		j = data->a->top;
+		while (j)
+		{
+			if (j->value < i->value)
+				rank++;
+			j = j->next;
+		}
+		i->index = rank;
+		i = i->next;
+	}
 }
 
-void print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
-    t_node *current;
+	t_node	*current;
 
-    current = stack->top;
-    while(current)
-    {
-        printf("%d", current->value);
-        current = current->next;
-    }
-    printf("\n");
+	current = stack->top;
+	while (current)
+	{
+		printf("%d", current->value);
+		current = current->next;
+	}
+	printf("\n");
 }

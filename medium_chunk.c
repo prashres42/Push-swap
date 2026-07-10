@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 11:32:24 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/10 17:58:48 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:25:08 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	sort_medium(t_stacks *data, t_bench *bench, int print)
 	int	chunk;
 	int	pos;
 
-	bench->strategy = "Medium / O(n√n)"; 
+	bench->strategy = "Medium / O(n√n)";
 	chunk = ft_sqrt(data->a->size);
 	chunk_sort(data, bench, print, chunk);
 	while (data->b->size > 0)

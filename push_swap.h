@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/10 17:58:58 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:28:03 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_stacks
 	t_stack	*a;
 	t_stack	*b;
 }			t_stacks;
+
 typedef struct s_flags
 {
 	int	simple;
@@ -48,23 +49,25 @@ typedef struct s_flags
 	int	adaptive;
 	int	bench;
 }		t_flags;
+
 typedef struct s_bench
 {
-	int	disorder;
-	int	total_ops;
+	int		disorder;
+	int		total_ops;
 	char	*strategy;
-	int	sa;
-	int	sb;
-	int	ss;
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
 }		t_bench;
+
 typedef struct s_pointer_bench_flag
 {
 	t_flags	*flags;
@@ -97,10 +100,9 @@ t_node		*node_new(int value, t_stacks *data, t_ptr_b_f ptr);
 void		stack_addback(t_stack *stack, t_node *node);
 int			find_min_index(t_stack *stack);
 int			find_max_index(t_stack *stack);
-void 		assign_indexes(t_stacks *data);
+void		assign_indexes(t_stacks *data);
 void		print_stack(t_stack *stack);
-void 		print_bench(t_bench *bench);
-
+void		print_bench(t_bench *bench);
 
 void		rra(t_stacks *data, t_bench *bench, int print);
 void		rrb(t_stacks *data, t_bench *bench, int print);
