@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_radix.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 15:02:37 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/10 18:22:51 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/13 19:41:07 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,20 @@ void	radix_sort(t_stacks *data, t_bench *bench, int print)
 	int	i;
 
 	bench->strategy = "Complex / O(nlogn)";
+	if (data->a->size <= 5)
+		return (sort_upto5(data, bench, print));
 	bit = 0;
 	size = data->a->size;
 	max_bits = get_max_bits(size);
 	while (bit < max_bits)
 	{
-		i = 0;
-		while (i < size)
+		i = -1;
+		while (++i < size)
 		{
 			if (((data->a->top->index >> bit) & 1) == 0)
 				pb(data, bench, print);
 			else
 				ra(data, bench, print);
-			i++;
 		}
 		while (data->b->size > 0)
 			pa(data, bench, print);

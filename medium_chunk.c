@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_chunk.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 11:32:24 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/10 18:25:08 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/13 19:41:21 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	sort_medium(t_stacks *data, t_bench *bench, int print)
 	int	pos;
 
 	bench->strategy = "Medium / O(n√n)";
+	if (data->a->size <= 5)
+		return (sort_upto5(data, bench, print));
 	chunk = ft_sqrt(data->a->size);
 	chunk_sort(data, bench, print, chunk);
 	while (data->b->size > 0)

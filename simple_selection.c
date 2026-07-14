@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_selection.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 14:26:58 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/10 18:39:55 by prashres         ###   ########.fr       */
+/*   Created: 2026/07/13 18:28:00 by ppourraj          #+#    #+#             */
+/*   Updated: 2026/07/13 20:15:39 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	selection_sort(t_stacks *data, t_bench *bench, int print)
 	bench->strategy = "Simple / O(n^2)";
 	if (!data->a->top || !data->a->top->next)
 		return ;
+	if (data->a->size <= 5)
+		return (sort_upto5(data, bench, print));
 	while (!is_sorted(data->a))
 	{
 		pos = find_min_index(data->a);

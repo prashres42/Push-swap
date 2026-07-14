@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/10 18:28:03 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/13 19:36:59 by ppourraj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,6 @@ void		min_to_top(t_stacks *data, int pos, t_bench *bench, int print);
 void		radix_sort(t_stacks *data, t_bench *bench, int print);
 void		implement_algo(t_stacks *data, t_bench *bench, t_flags *flag);
 void		adaptive_sort(t_stacks *data, t_bench *bench, int print);
+void		sort_upto5(t_stacks *data, t_bench *bench, int print);
 
 #endif
