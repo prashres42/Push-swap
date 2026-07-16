@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:39:06 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/10 18:35:28 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:14:37 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,12 @@ void	print_bench(t_bench *bench)
 {
 	if (!bench)
 		return ;
-	ft_printf("[bench] disorder: %i.%i",
+	ft_dprintf(2, "[bench] disorder: %i.%i%%\n",
 		bench->disorder / 100, bench->disorder % 100);
-	ft_print_char('%');
-	ft_printf("\n");
-	ft_printf("[bench] strategy: %s\n", bench->strategy);
-	ft_printf("[bench] total_ops: %d\n", bench->total_ops);
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", bench->sa, \
-bench->sb, bench->ss, bench->pa, bench->pb);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr %d\n", \
-bench->ra, bench->rb, bench->rr, bench->rra, bench->rrb, bench->rrr);
+	ft_dprintf(2, "[bench] strategy: %s\n", bench->strategy);
+	ft_dprintf(2, "[bench] total_ops: %d\n", bench->total_ops);
+	ft_dprintf(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+		bench->sa, bench->sb, bench->ss, bench->pa, bench->pb);
+	ft_dprintf(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+		bench->ra, bench->rb, bench->rr, bench->rra, bench->rrb, bench->rrr);
 }

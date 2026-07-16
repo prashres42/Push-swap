@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 18:01:44 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/10 18:40:05 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:37:13 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,4 @@ void	assign_indexes(t_stacks *data)
 		i->index = rank;
 		i = i->next;
 	}
-}
-
-void	print_stack(t_stack *stack)
-{
-	t_node	*current;
-
-	current = stack->top;
-	while (current)
-	{
-		printf("%d", current->value);
-		current = current->next;
-	}
-	printf("\n");
 }

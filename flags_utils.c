@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 15:25:42 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/07 15:36:39 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:34:19 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	ini_flags(t_flags *flag_value)
 	flag_value->bench = 0;
 }
 
-t_flags	*check_flag(char **argv)
+t_flags	*check_flags(char **argv)
 {
 	t_flags	*flag_value;
 
@@ -60,7 +60,7 @@ t_flags	*check_flag(char **argv)
 	{
 		if (compare_flags(*argv++, flag_value) == -1)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 7);
 			free(flag_value);
 			return (NULL);
 		}

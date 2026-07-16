@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   implement_algo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:22:56 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/13 18:27:02 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/16 14:33:06 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 	int	print;
 
 	print = 1;
-	if (flag && flag->bench == 1)
+	if (flag && flag->bench)
 		print = 0;
-	if (data->a->size <= 5)
-		sort_upto5(data, bench, print);
 	if (!flag)
 		adaptive_sort(data, bench, 1);
 	else if (flag->simple == 1)
@@ -53,6 +51,6 @@ void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 		radix_sort(data, bench, print);
 	else if (flag->bench == 1)
 		adaptive_sort(data, bench, print);
-	else if (flag->adaptive == 1)
+	else if (flag->adaptive)
 		adaptive_sort(data, bench, print);
 }

@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:03:46 by ppourraj          #+#    #+#             */
-/*   Updated: 2026/07/13 19:36:59 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:51:03 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "LIBFT/libft.h"
-# include "ft_printf/ft_printf.h"
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -21,6 +20,7 @@
 # include <math.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <stdarg.h>
 
 typedef struct s_node
 {
@@ -89,7 +89,6 @@ void		free_memory(t_bench *bench, t_flags *flag);
 
 int			compare_flags(char *argv, t_flags *flag_value);
 t_flags		*check_flags(char **argv);
-t_flags		*check_flag(char **argv);
 int			flags_total(t_flags *flags);
 
 t_stacks	*parse_args(char **argv, t_ptr_b_f ptr_b_f);
@@ -101,7 +100,6 @@ void		stack_addback(t_stack *stack, t_node *node);
 int			find_min_index(t_stack *stack);
 int			find_max_index(t_stack *stack);
 void		assign_indexes(t_stacks *data);
-void		print_stack(t_stack *stack);
 void		print_bench(t_bench *bench);
 
 void		rra(t_stacks *data, t_bench *bench, int print);
@@ -123,5 +121,6 @@ void		radix_sort(t_stacks *data, t_bench *bench, int print);
 void		implement_algo(t_stacks *data, t_bench *bench, t_flags *flag);
 void		adaptive_sort(t_stacks *data, t_bench *bench, int print);
 void		sort_upto5(t_stacks *data, t_bench *bench, int print);
+int			ft_dprintf(int fd, const char *fmt, ...);
 
 #endif
