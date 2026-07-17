@@ -6,7 +6,7 @@
 /*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:22:56 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/16 14:33:06 by prashres         ###   ########.fr       */
+/*   Updated: 2026/07/17 12:50:10 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	implement_algo(t_stacks *data, t_bench *bench, t_flags *flag)
 		radix_sort(data, bench, print);
 	else if (flag->bench == 1)
 		adaptive_sort(data, bench, print);
-	else if (flag->adaptive)
+	else if (flag->adaptive == 1)
 		adaptive_sort(data, bench, print);
 }
