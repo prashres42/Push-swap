@@ -94,13 +94,13 @@ Selection sort repeatedly finds the current minimum value remaining in stack `a`
 
 **Why this algorithm was chosen for the simple tier:** it is the most intuitive and easiest-to-prove-correct approach — each step deterministically identifies and places a single element — which makes it a solid baseline implementation. Its main drawback is that finding the minimum costs O(n) per iteration, repeated n times, giving O(n²) total complexity and a comparably high operation count on larger inputs. This is an intentional trade-off: `--simple` favors simplicity and correctness over efficiency, and is meant to be used on small inputs or as a fallback within the adaptive mode.
 
-### Chunk sort (`--medium`) — O(n log n)
+### Chunk sort (`--medium`) — O(n√n)
 
 Chunk sort divides stack `a` into a fixed number of value ranges ("chunks") sized so that each chunk holds roughly `size / chunk_count` elements. Elements are pushed to stack `b` chunk by chunk (smallest range first), so that `b` fills up in mostly-sorted order without needing to compute an exact global rank for every value up front. Within each chunk, the element closest to the top of `a` matching that range is prioritized to minimize rotation cost. Once every element is on `b`, the stack is pushed back to `a` in a way that preserves the resulting order.
 
 **Why this algorithm was chosen for the medium tier:** chunking is a well-known middle ground between the simplicity of selection sort and the full radix approach — it avoids the O(n²) minimum-search cost of selection sort by grouping values instead of scanning for an exact minimum every time, bringing the total complexity down to roughly O(n log n) for a well-tuned chunk size, while remaining considerably simpler to reason about and debug than a full radix sort. It offers a good balance of operation count and implementation complexity, making it well suited to mid-sized inputs (roughly 100–500 elements).
 
-### Radix sort (`--complex`) — O(n log n)
+### Radix sort (`--complex`) — O(n√n)
 
 Radix sort treats each value by its **binary representation** rather than direct comparisons. Every value in stack `a` is first assigned a rank/index (via `assign_indexes`) so it can be sorted purely on bits, independent of the original values' magnitude. The algorithm then processes each bit position, from least significant to most significant: for every element, if the current bit is `0`, it stays at the top of `a` (via a rotate); if the bit is `1`, it is pushed to `b`. After each full pass over all elements, `b` is pushed back onto `a`. Repeating this for every bit of the largest index (`log2(n)` passes) fully sorts the stack.
 
@@ -129,3 +129,8 @@ This avoids the need to manually pick an algorithm per input and lets the progra
 - AI was used to understand deeper about parsing, algorithms and their usage. 
 - AI helped us dive deeper into the logarithmic functioning of algorithms as well as grasping the concepts of sorting the data using various types of algorithms.
 - Parts of README were done using the help of AI as well.
+
+### Contribuitions
+
+This project was developed collaboratively from start to finish, with both contributors participating equally in its design, implementation, testing, debugging, and documentation. All major technical decisions and development work were carried out jointly, reflecting an equal partnership throughout the project.
+

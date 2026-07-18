@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppourraj <ppourraj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prashres <prashres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 15:30:31 by prashres          #+#    #+#             */
-/*   Updated: 2026/07/09 19:45:32 by ppourraj         ###   ########.fr       */
+/*   Updated: 2026/07/18 17:42:29 by prashres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ static int	pars_args_helper(char **splitted, char **argv, t_stacks *data,
 		argv++;
 		while (splitted[i])
 		{
+			if (error_syntax(splitted))
+				ft_error(data, ptr, splitted);
 			nbr = ft_atol(splitted[i]);
 			if (nbr == LONG_MAX)
 				ft_error(data, ptr, splitted);
